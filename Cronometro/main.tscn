@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpm2jp7ckl0v1"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_0smd0"]
+[ext_resource type="Script" path="res://Timer.gd" id="2_epqoi"]
+[ext_resource type="FontFile" uid="uid://b0hwdurcb70ir" path="res://alarm clock.ttf" id="3_88o2o"]
+[ext_resource type="Texture2D" uid="uid://bk3j2det21ri7" path="res://timer (1).png" id="3_fj75u"]
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_0smd0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StartStopButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_top = -0.0493827
+anchor_right = -0.0138889
+anchor_bottom = -0.0570988
+offset_left = 110.0
+offset_top = 467.0
+offset_right = 237.0
+offset_bottom = 586.0
+disabled = true
+text = "S"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer(1)" type="Sprite2D" parent="."]
+position = Vector2(360, 307)
+scale = Vector2(0.596491, 0.56325)
+texture = ExtResource("3_fj75u")
+
+[node name="TimerLabel" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 230.0
+offset_top = 196.0
+offset_right = 440.0
+offset_bottom = 281.0
+theme_override_fonts/font = ExtResource("3_88o2o")
+theme_override_font_sizes/font_size = 80
+text = "00:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="TempTimer" type="Timer" parent="."]
+script = ExtResource("2_epqoi")
+
+[connection signal="pressed" from="StartStopButton" to="." method="_on_start_stop_button_pressed"]
+[connection signal="timeout" from="TempTimer" to="." method="_on_timer_timeout"]
