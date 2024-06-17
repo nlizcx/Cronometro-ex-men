@@ -1,2 +1,2 @@
-# Cronometro-ex-men
+# Cronometro-examen
 examen
